@@ -26,7 +26,7 @@
 
       <option value="" disabled selected>Choose a Pokemon</option>
       <select [(ngModel)]="selectedPokemon" class="w3-select w3-border">
-        <option *ngFor="let pokemon of listPokemon">{{pokemon.name}}</option>
+        <option *ngFor="let pokemon of listPokemon" [ngValue]='pokemon'>{{pokemon.name}}</option>
       </select>
 
       <h2 *ngIf="selectedPokemon">You have chosen : {{selectedPokemon.name}}</h2>
@@ -43,7 +43,7 @@
       <input class="w3-input w3-border" placeholder="Type a name to filter the list" [(ngModel)]="searchValue">
       <br>
       <select [(ngModel)]="selectedPokemon" class="w3-select w3-border">
-        <option *ngFor="let pokemon of listPokemon  | filterPokemonPipe: 'name' : searchValue">{{pokemon.name}}</option>
+        <option *ngFor="let pokemon of listPokemon  | filterPokemonPipe: 'name' : searchValue" [ngValue]='pokemon'>{{pokemon.name}}</option>
       </select>
 
       <h2 *ngIf="selectedPokemon">You have chosen : {{selectedPokemon.name}}</h2>
