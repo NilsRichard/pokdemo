@@ -1,0 +1,95 @@
+<div class="w3-container">
+
+  <div *ngIf="displayAllQuestions">
+    <hr>
+
+    <h1>Q2</h1>
+    <div class="w3-container">
+
+      <input [(ngModel)]="id">
+      <h2>
+        {{id}}
+      </h2>
+    </div>
+
+    <hr>
+
+    <h1>Q3</h1>
+    <div class="w3-container">
+      <input readonly [(ngModel)]="id">
+    </div>
+
+    <hr>
+
+    <h1>Q5..7</h1>
+    <div class="w3-container">
+
+      <option value="" disabled selected>Choose a Pokemon</option>
+      <select [(ngModel)]="selectedPokemon" class="w3-select w3-border">
+        <option *ngFor="let pokemon of listPokemon">{{pokemon.name}}</option>
+      </select>
+
+      <h2 *ngIf="selectedPokemon">You have chosen : {{selectedPokemon.name}}</h2>
+
+    </div>
+
+    <hr>
+
+    <h1>Q8</h1>
+    <div class="w3-container">
+
+      <h2>Choose a Pokemon</h2>
+
+      <input class="w3-input w3-border" placeholder="Type a name to filter the list" [(ngModel)]="searchValue">
+      <br>
+      <select [(ngModel)]="selectedPokemon" class="w3-select w3-border">
+        <option *ngFor="let pokemon of listPokemon  | filterPokemonPipe: 'name' : searchValue">{{pokemon.name}}</option>
+      </select>
+
+      <h2 *ngIf="selectedPokemon">You have chosen : {{selectedPokemon.name}}</h2>
+
+    </div>
+
+    <hr>
+
+    <h1>Q9</h1>
+    <div class="w3-container">
+
+      <h2>Choose a Pokemon</h2>
+
+      <input class="w3-input w3-border w3-margin" placeholder="Type a name to filter the list"
+        [(ngModel)]="searchValue">
+      <select [(ngModel)]="selectedPokemon" class="w3-select w3-border w3-margin">
+        <option *ngFor="let pokemon of listPokemon  | filterPokemonPipe: 'name' : searchValue" [ngValue]='pokemon'>
+          {{pokemon.name}}</option>
+      </select>
+
+      <h2 *ngIf="selectedPokemon">You have chosen : {{selectedPokemon.name}}</h2>
+
+      <button (click)="go()" class="w3-button w3-blue w3-margin">Go !</button>
+      <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+    </div>
+
+    <hr>
+  </div>
+
+  <h1>Q10..16</h1>
+  <div class="w3-container w3-margin">
+
+    <h2>Choose a Pokemon</h2>
+
+    <input class="w3-input w3-border w3-margin" placeholder="Type a name to filter the list" [(ngModel)]="searchValue">
+    <select [(ngModel)]="selectedPokemon" class="w3-select w3-border w3-margin">
+      <option *ngFor="let pokemon of listPokemon  | filterPokemonPipe: 'name' : searchValue" [ngValue]='pokemon'>
+        {{pokemon.name}}</option>
+    </select>
+
+    <button (click)="go()" class="w3-button w3-blue w3-margin">Go !</button>
+
+    <hr>
+
+    <poke-detail *ngIf="pokeDetail" [pokeDetail]='pokeDetail'></poke-detail>
+  </div>
+
+
+</div>

@@ -1,0 +1,30 @@
+<div *ngIf="pokeDetail">
+  <div>
+    <img src="{{currentImg}}" alt="psykokwak" height="170" />
+  </div>
+  <div>
+    <strong>Name:</strong> {{pokeDetail.name | titlecase}}<br />
+
+    <strong>Type:</strong> <span *ngFor="let t of pokeDetail.types"> {{t.type.name | titlecase}} </span> <br />
+
+    <strong>Height:</strong> {{pokeDetail.height}}''<br />
+    <strong>Weight:</strong> {{pokeDetail.weight}} lbs.<br /><br />
+  </div>
+
+  <hr>
+
+  <h3><strong>Abilities</strong></h3>
+  <table class="w3-table-all">
+    <thead>
+      <tr class="w3-blue">
+        <th>Name</th>
+        <th>Url</th>
+      </tr>
+    </thead>
+
+    <tr *ngFor="let a of pokeDetail.abilities">
+      <td>{{a.ability.name}}</td>
+      <td>{{a.ability.url}}</td>
+    </tr>
+  </table>
+</div>
