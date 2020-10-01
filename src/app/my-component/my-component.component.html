@@ -79,7 +79,8 @@
     <h2>Choose a Pokemon</h2>
 
     <input class="w3-input w3-border w3-margin" placeholder="Type a name to filter the list" [(ngModel)]="searchValue">
-    <select [(ngModel)]="selectedPokemon" class="w3-select w3-border w3-margin">
+    <select [(ngModel)]="selectedPokemon" class="w3-select w3-border w3-margin" required>
+      <option value="">-- Select a Pokemon --</option>
       <option *ngFor="let pokemon of listPokemon  | filterPokemonPipe: 'name' : searchValue" [ngValue]='pokemon'>
         {{pokemon.name}}</option>
     </select>

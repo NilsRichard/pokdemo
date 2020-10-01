@@ -32,12 +32,12 @@ export class MyComponentComponent implements OnInit {
   }
 
   go() {
-    if (this.selectedPokemon != undefined) {
+    if (this.selectedPokemon != undefined && this.selectedPokemon.name != undefined) {
       this.pokeService.getPokemonInfo(this.selectedPokemon.id).subscribe(data => {
         this.pokeDetail = data;
-        this.dataService.changePokemonId(this.selectedPokemon.id+ '');
+        this.dataService.changePokemonId(this.selectedPokemon.id + '');
       });
-    }
+    } else console.log("selected pokemon is undefined");
   }
 
 }
