@@ -18,6 +18,9 @@ export class PokeDetailComponent implements OnInit {
   currentImg: string;
   currentImgIsFront: boolean;
 
+  /**
+   * This array contains all the subscriptions to not forget to unsubscribe to all when the component is destroyed
+   */
   subscriptions = [];
 
   constructor(private dataService: DataService) {
@@ -46,6 +49,9 @@ export class PokeDetailComponent implements OnInit {
     }
   }
 
+  /**
+   * Little animation changing the pokemon from back to front en the other way around
+   */
   changeImg() {
     if (this.currentImgIsFront) {
       this.currentImg = this.pokeDetail.sprites.back_default;

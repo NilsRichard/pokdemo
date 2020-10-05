@@ -31,6 +31,9 @@ export class MyComponentComponent implements OnInit {
     })
   }
 
+  /**
+   * Gets the details on the selected pokemon 
+   */
   go() {
     if (this.selectedPokemon != undefined && this.selectedPokemon.name != undefined) {
       this.pokeService.getPokemonInfo(this.selectedPokemon.id).subscribe(data => {
